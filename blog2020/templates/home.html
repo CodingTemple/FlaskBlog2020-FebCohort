@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--Header Image/Hero Image-->
+<header class="banner">
+    <h1 class="header-text">This is a blog during a pandemic</h1>
+</header>
+
+    {% for order,lang in languages.items() %}
+        {% if lang == 'Python' %}
+            <h2>{{lang}}</h2>
+            {% else %}
+            <ul>
+                <li>{{ order }}</li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
