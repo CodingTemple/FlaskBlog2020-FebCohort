@@ -108,3 +108,11 @@ a{
     color:white;
 }
 
+form>fieldset label:nth-child(n+3){
+    margin-top: 10px;
+}
+
+form input[type="submit"]{
+    margin-top: 2rem;
+}
+
