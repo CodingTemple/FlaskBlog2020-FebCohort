@@ -7,6 +7,7 @@
         Create an account to look around.
     </p>
 
+    {% if request.method == 'POST' %}
     {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -19,6 +20,7 @@
         {% endif %}
 
     {% endwith %}
+    {% endif %}
     
     <!--SignUp Form which comes from Flask Route-->
     <form action="" method="post">

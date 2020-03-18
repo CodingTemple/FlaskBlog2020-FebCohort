@@ -7,7 +7,11 @@
             <li><a href="{{ url_for('create_user') }}">Register</a></li>
             <li><a href="{{ url_for('post_blog') }}">Create a Post</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Login</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
         </li>
     </ul>
 </nav>
