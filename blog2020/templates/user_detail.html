@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Coding Temple's Blog 2020 User Content</h1>
+        <p>Below displays your current username. If you would like to change you user info,
+            please click the button below.
+        </p>
+
+        <h3>{{ user.username }}</h3>
+        <a href="{{ url_for('user_update', user_id = user.id) }}"><button class="btn btn-success">Update User Profile Info</button></a>
+    </div>
+
+{% endblock content %}

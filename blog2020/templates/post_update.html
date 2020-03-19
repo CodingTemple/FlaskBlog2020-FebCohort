@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h2>What would you like your blog to say now?</h2>
+        <p>Update the blog post to what ever you like!</p>
+
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <fieldset>
+                    {{ form.title.label }}
+                    {{ form.title(class='form-control',placeholder = "Update Blog Title")}}
+                </fieldset>
+                <fieldset>
+                    {{ form.content.label }}
+                    {{ form.content(class="form-control", placeholder="Update Blog Content")}}
+                </fieldset>
+                {{ form.submit(class="btn btn-success")}}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

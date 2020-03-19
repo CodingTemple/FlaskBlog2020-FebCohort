@@ -48,4 +48,4 @@ class Post(db.Model):
         self.user_id = user_id
 
     def __repr__(self):
-        return f'The Title of the post is {self.title} and the user is {self.user_id}'
+        return f'The Title of the post is {self.title} \n and the content is {self.content} \n the user is {self.user_id}'

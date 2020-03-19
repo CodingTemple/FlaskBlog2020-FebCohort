@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<button class="btn btn-primary"><a href="{{ url_for('home') }}"> Back to Home</a></button>
+
+<div class="container">
+    <h1>The current author of this post is: {{ post.author.username }}</h1>
+
+    <h3>Content:</h3>
+    <hr>
+
+    <h3>Title: {{ post.title }}</h3>
+    <p> {{ post.content }}</p>
+    <blockquote>
+        Date Created: {{ post.date_created }}
+    </blockquote>
+    <a href="{{ url_for('post_update', post_id = post.id) }}"><button class="btn btn-primary">Update Post</button></a>         
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dangerModal">Delete Post</button>
+    <!-- Modal -->
+    <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="dangerModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="dangerModalLabel">Delete Post - Are You Sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                This action can't be reversed. Are you sure you want to delete?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form action="{{ url_for('post_delete', post_id = post.id) }}" method="POST">
+                    <input class="btn btn-danger" type="submit" value="Delete?">
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+
+{% endblock content %}
